@@ -1,4 +1,182 @@
 html, body {
     margin: 0;
     padding: 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-family:inter;
+    width:100%;
+    background-color: #1C1C1C;
+    box-sizing: border-box;
 }
+
+
+/*HEADER AREA*/
+
+header {
+    background: url(images/andre-tan-THJJRUhNlEc-unsplash.jpg), white 0px -158.291px / 100% 423.007% no-repeat;
+    width: 100%;
+    height:20vh;
+    background-size: 100% auto;
+    background-position:10% 30%;  
+    color:white;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+}
+
+.head-container {
+    width:60%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    background-color:white;
+}
+
+
+.watchlist {
+    margin:0px;
+    padding:0px;
+}
+
+.header-text {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    width:100%;
+    justify-content: space-between;
+    opacity:1;
+    color:white;
+}
+
+.header-title {
+    margin-left:3rem;
+    text-decoration: none !important;
+}
+ 
+.watchlist{
+    margin-right:3rem;
+}
+
+a {
+    text-decoration: none;
+    color:white;
+}
+
+.search {
+    position: relative;
+    top:-19px;
+    display:flex;
+    width: 462px;
+    height:38px;
+    justify-content:center;
+    margin:0 auto;
+}
+
+.search-input{
+    width:30vw;
+}
+
+.search-button {
+    width:20vw;
+}
+
+/* Main Area*/
+
+main {
+    width:60%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    background-color:white;
+    margin:0;
+    min-height:80vh
+}
+
+.movies-container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+}
+.movie-icon {
+    width:100px;
+}
+
+.start-exploring{
+    color: #DFDDDD;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 111.111% */
+    margin:2rem;
+}
+
+.movie{
+    width:80%;
+    border-bottom: 2px solid grey;
+    display:grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 3fr;
+    min-height: 20vh;
+    padding: 1rem;
+    margin-bottom:1rem;
+
+}
+
+.movie-poster{
+    object-fit:cover;
+    grid-row:1 / 4;
+    width:80%;
+    margin:auto 10%;
+    border-radius: 2%;
+
+}
+
+.movie-plot {
+    grid-row: 3;
+    grid-column:2 /span 3;
+    text-align:bottom;
+}
+
+.movie-title {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+    margin: auto 10%;
+
+}
+
+.movie-genre{
+    grid-row:2;
+    grid-column:3;
+    margin:auto;
+}
+
+.movie-add {
+    grid-row:2;
+    grid-column:4;
+    margin:auto;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.movie-rating {
+    margin: auto;
+}
+
+.movie-length {
+    margin:auto;
+}
+
+.movie-subitem {
+    /* margin: auto auto auto 0;
+    background-color:red; */
+}
+
+
+
+
