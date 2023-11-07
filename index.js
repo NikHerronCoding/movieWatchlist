@@ -6,7 +6,7 @@ const movieId = `i`;
 
 let MOVIES = [];
 let WATCHLIST = [];
-if (localStorage.getItem('movieWatchlist.watchList') != null && JSON.parse(localStorage.getItem('movieWatchlist.watchList')).length > 0 ) {
+if (localStorage.getItem('movieWatchlist.watchList') != null) {
     WATCHLIST = JSON.parse(localStorage.getItem(WATCHLIST_KEY));
 }
 
