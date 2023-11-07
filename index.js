@@ -12,8 +12,8 @@ if (localStorage.getItem('movieWatchlist.watchList') != null && JSON.parse(local
 
 
 //url components
-let searchUrl = `http://www.omdbapi.com/?apikey=${apiKey}&${search}=`;
-let movieIdUrl = `http://www.omdbapi.com/?apikey=${apiKey}&${movieId}=`;
+let searchUrl = `https://www.omdbapi.com/?apikey=${apiKey}&${search}=`;
+let movieIdUrl = `https://www.omdbapi.com/?apikey=${apiKey}&${movieId}=`;
 
 
 //dom components
