@@ -1,15 +1,19 @@
-
+import {populate_feed, WATCHLIST_KEY} from "./helper.js"; 
 //API key for use with OMDB
-apiKey = "3d009fd8";
-search = `s`;
-movieId = `i`; 
+const apiKey = "3d009fd8";
+const search = `s`;
+const movieId = `i`; 
 
 let MOVIES = [];
+let WATCHLIST = [];
+if (localStorage.getItem('movieWatchlist.watchList') != null && JSON.parse(localStorage.getItem('movieWatchlist.watchList')).length > 0 ) {
+    WATCHLIST = JSON.parse(localStorage.getItem(WATCHLIST_KEY));
+}
 
 
 //url components
-searchUrl = `http://www.omdbapi.com/?apikey=${apiKey}&${search}=`;
-movieIdUrl = `http://www.omdbapi.com/?apikey=${apiKey}&${movieId}=`
+let searchUrl = `http://www.omdbapi.com/?apikey=${apiKey}&${search}=`;
+let movieIdUrl = `http://www.omdbapi.com/?apikey=${apiKey}&${movieId}=`;
 
 
 //dom components
@@ -17,51 +21,36 @@ const searchForm = document.getElementById('search-form');
 const searchText = document.getElementById('movie-text');
 const moviesContainer = document.getElementById('movies-container');
 
+/*Main function creates two event listeners
+
+    1. for the search bar submit
+    2. for the 'add to watchlist feature'
+
+*/
 function main(){
     searchForm.addEventListener("submit", e=>{
         e.preventDefault();
         handleSearch();
     });
-}
 
-
-/*This function  updates the DOM with each movie in the MOVIES global var*/
-function populate_feed() {
-    moviesContainer.innerHTML = MOVIES.map((movie, index)=>{
-
-        if (movie.Poster.toLowerCase() === "n/a") {
-            movie.Poster = "";
-
+    document.addEventListener('click', e=>{
+        switch (e.target.classList[0]) {
+            case "movie-icon":
+                //getting ID of grandparent element
+                let imdbID = e.target.parentElement.parentElement.id;
+                let watchList = JSON.parse(localStorage.getItem(WATCHLIST_KEY));
+                handleWatchlistAddIndex(imdbID, MOVIES, watchList, moviesContainer);
+                break;
+            default:
+                console.log(JSON.parse(localStorage.getItem('movieWatchlist.watchList')));
         }
-        console.log(movie);
-        return `
-            <div class="movie" id="movie-${index}">
+    })
 
-                <h2 class="movie-title movie-subitem">
-                    ${movie.Title} (${movie.Year})
-                </h2>
 
-                <h2 class="movie-rating movie-subitem">${movie.imdbRating}</h2>
-
-                <p class="movie-length movie-subitem"> ${movie.Runtime}</p>
-
-                <p class="movie-genre movie-subitem">${movie.Genre}</p>
-
-                <p class="movie-plot movie-subitem"> 
-                    ${movie.Plot}
-                </p>
-
-                <div class="movie-add movie-subitem">
-                    <img src="./images/add_movie.png">
-                    <span>Watchlist</span>
-                </div>
-
-                <img class="movie-poster movie-subitem" src="${movie.Poster}" alt="movie poster">
-
-            </div>        
-        `
-    }).join("");
 }
+
+
+
 
 /* For each search result, this function gets the full data of each movie and places it in the MOVEIS global VAR
 
@@ -92,11 +81,41 @@ async function handleSearch() {
      a full movie api request must be made*/
      await getMovieInfo(data);
      
-     populate_feed();
+     populate_feed(moviesContainer, MOVIES);
 
 }
 
 
+function handleWatchlistAddIndex(imdbID, movies, watchList, container){
+    console.log('watchList: ')
+    console.log(watchList)
+    let movie = movies.find(ele=>{
+        return ele.imdbID === imdbID;
+    })
 
+    console.log(movie);
+
+    /*if movie not already in watchlist, add it to watchlist
+    else remove movie from watchlist
+    */
+
+    if ((watchList[0] == null && watchList.length < 2) || !watchList.find(ele=>{
+        return ele.imdbID == imdbID; 
+    })) {
+        watchList.push(movie);
+        console.log('added movie')
+    } else {
+        watchList = watchList.filter(movie=> movie.imdbID != imdbID)
+        console.log('tried to remove movie')
+    }
+    
+    localStorage.setItem(WATCHLIST_KEY, JSON.stringify(watchList));
+    populate_feed(container, movies);
+    console.log('watchList at end')
+    console.log(watchList);
+}
+
+
+localStorage.setItem(WATCHLIST_KEY, JSON.stringify([]));
 main();
 

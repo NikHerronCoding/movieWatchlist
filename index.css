@@ -19,6 +19,8 @@ header {
     height:20vh;
     background-size: 100% auto;
     background-position:10% 30%;  
+    background-repeat: no-repeat;
+    background-size: cover;
     color:white;
     display:flex;
     flex-direction:row;
@@ -68,8 +70,8 @@ a {
     position: relative;
     top:-19px;
     display:flex;
-    width: 462px;
-    height:38px;
+    width: 50%;
+    height:15%;
     justify-content:center;
     margin:0 auto;
 }
@@ -79,7 +81,7 @@ a {
 }
 
 .search-button {
-    width:20vw;
+    width:20%;
 }
 
 /* Main Area*/
@@ -88,10 +90,17 @@ main {
     width:60%;
     display:flex;
     align-items:center;
-    justify-content: center;
+    flex-direction: column;
     background-color:white;
     margin:0;
     min-height:80vh
+}
+
+.initial-content{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height:80vh;
 }
 
 .movies-container {
@@ -101,9 +110,9 @@ main {
     align-items:center;
 
 }
-.movie-icon {
+/* .movie-icon {
     width:100px;
-}
+} */
 
 .start-exploring{
     color: #DFDDDD;
@@ -120,11 +129,17 @@ main {
     border-bottom: 2px solid grey;
     display:grid;
     grid-template-columns: 1fr 1fr 2fr 1fr;
-    grid-template-rows: 1fr 1fr 3fr;
-    min-height: 20vh;
+    grid-template-rows: 1fr 1fr 1fr;
+    min-height: 10vh;
     padding: 1rem;
     margin-bottom:1rem;
+    color:black;
 
+}
+
+.movie-subitem {
+    margin: auto auto 0 auto;
+    color:black;
 }
 
 .movie-poster{
@@ -133,6 +148,7 @@ main {
     width:80%;
     margin:auto 10%;
     border-radius: 2%;
+    margin: auto auto;
 
 }
 
@@ -140,12 +156,15 @@ main {
     grid-row: 3;
     grid-column:2 /span 3;
     text-align:bottom;
+    color:black;
 }
 
 .movie-title {
     grid-column: 2 / span 2;
     grid-row: 1;
     margin: auto 10%;
+    text-align:center;
+    color:black;
 
 }
 
@@ -153,6 +172,7 @@ main {
     grid-row:2;
     grid-column:3;
     margin:auto;
+    color:black;
 }
 
 .movie-add {
@@ -166,17 +186,41 @@ main {
 
 .movie-rating {
     margin: auto;
+    color:black;
 }
 
 .movie-length {
     margin:auto;
+    color:black;
 }
 
-.movie-subitem {
-    /* margin: auto auto auto 0;
-    background-color:red; */
+.movie-icon {
+    margin:0.5rem;
 }
 
+
+
+.rating-star {
+    height:20px;
+    width:20px;
+}
+
+#watchlist-container, #watchlist-container p {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    color: black;
+    font-family:inter;
+    font-weight:700;
+    font-size:1.25rem;
+
+}
+
+.add-movies {
+    color: black;
+    font-size:0.875rem;
+}
 
 
 
