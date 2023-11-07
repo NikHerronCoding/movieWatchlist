@@ -9,7 +9,7 @@ function main() {
     populateWatchlist(moviesContainer);
 
     document.addEventListener('click', e=>{
-        console.log(e.target)
+        
         switch (e.target.classList[0]) {
             case "movie-watchlist":
                 //getting ID of grandparent element
@@ -35,7 +35,7 @@ export function removeMovie(imdbID){
      watchList = JSON.parse(localStorage.getItem(WATCHLIST_KEY)); 
     }
 
-    console.log(watchList)
+    
 
     /*if movie not already in watchlist, add it to watchlist
     else remove movie from watchlist
@@ -46,7 +46,6 @@ export function removeMovie(imdbID){
     });
 
     localStorage.setItem(WATCHLIST_KEY, JSON.stringify(watchList));
-    console.log(watchList)
     populateWatchlist(moviesContainer);
 
 }

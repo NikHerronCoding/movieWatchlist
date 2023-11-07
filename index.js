@@ -116,6 +116,5 @@ function handleWatchlistAddIndex(imdbID, movies, watchList, container){
 }
 
 
-localStorage.setItem(WATCHLIST_KEY, JSON.stringify([]));
 main();
 

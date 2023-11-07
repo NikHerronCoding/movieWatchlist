@@ -21,8 +21,6 @@ export function populate_feed(container, movies) {
         if (movie == null) {
             return;
         }
-        console.log(watchList.length);
-        console.log(watchList);
         if (watchList.length > 0) {
             added = watchList.find(watchMovie=> watchMovie.imdbID === movie.imdbID)
         } 
