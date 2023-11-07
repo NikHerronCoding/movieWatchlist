@@ -35,7 +35,7 @@ function main(){
 
     document.addEventListener('click', e=>{
         switch (e.target.classList[0]) {
-            case "movie-icon":
+            case "movie-watchlist":
                 //getting ID of grandparent element
                 let imdbID = e.target.parentElement.parentElement.id;
                 let watchList = JSON.parse(localStorage.getItem(WATCHLIST_KEY));

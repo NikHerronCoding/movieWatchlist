@@ -11,7 +11,7 @@ function main() {
     document.addEventListener('click', e=>{
         console.log(e.target)
         switch (e.target.classList[0]) {
-            case "movie-icon":
+            case "movie-watchlist":
                 //getting ID of grandparent element
                 let imdbID = e.target.parentElement.parentElement.id;
 

@@ -49,7 +49,7 @@ export function populate_feed(container, movies) {
                 </p>
 
                 <div class="movie-add movie-subitem">
-                    <img class="movie-icon" src="${added? "./images/remove_movie.png":"./images/add_movie.png"}">
+                    <img class="movie-watchlist movie-icon" src="${added? "./images/remove_movie.png":"./images/add_movie.png"}">
                     ${added ? "<span>Remove</span>":"<span>Watchlist</span>"}
                 </div>
 
@@ -108,7 +108,7 @@ export function populateWatchlist(container) {
                     </p>
     
                     <div class="movie-add movie-subitem">
-                        <img class="movie-icon" src="./images/remove_movie.png">
+                        <img class="movie-watchlist movie-icon" src="./images/remove_movie.png">
                         <span>Remove</span>
                     </div>
     
