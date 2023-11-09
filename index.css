@@ -37,6 +37,7 @@ header {
 }
 
 
+
 .watchlist {
     margin:0px;
     padding:0px;
@@ -222,5 +223,17 @@ main {
     font-size:0.875rem;
 }
 
+
+@media(max-width: 1000px) {
+
+    .head-container {
+        width:100%;
+    }
+
+    main {
+        width:100%;
+    }
+    
+}
 
 
